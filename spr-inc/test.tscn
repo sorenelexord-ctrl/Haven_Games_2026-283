@@ -1,0 +1,88 @@
+[gd_scene format=4 uid="uid://juy8tsdrbjf"]
+
+[ext_resource type="Script" uid="uid://bbgltpdipot1t" path="res://boingg.gd" id="1_6uqi0"]
+[ext_resource type="Texture2D" uid="uid://cbfc4wftutngq" path="res://WALLPAPER.png" id="1_37kl0"]
+[ext_resource type="Texture2D" uid="uid://cjp56ud6s0exm" path="res://spring.png" id="3_ppyta"]
+[ext_resource type="Texture2D" uid="uid://dw4mdk1ky5rmk" path="res://graytile.png" id="3_ykrsh"]
+[ext_resource type="Script" uid="uid://8fhjugppaol5" path="res://Spring.gd" id="4_ykrsh"]
+[ext_resource type="Texture2D" uid="uid://ba8rwr7350h2y" path="res://Master Key.png" id="6_g14j6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8uh7m"]
+load_path = "res://.godot/imported/arrowguy.png-b23e20d1ef6de1aa426e922e29d21682.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uqi0"]
+size = Vector2(15.800001, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g14j6"]
+texture = ExtResource("3_ykrsh")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_37kl0"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_g14j6")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
+size = Vector2(80, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbegm"]
+size = Vector2(80, 80)
+
+[node name="Node2D" type="Node2D" unique_id=1449491558]
+
+[node name="Boingg" type="CharacterBody2D" parent="." unique_id=208267075]
+scale = Vector2(5, 5)
+script = ExtResource("1_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boingg" unique_id=1192628610]
+texture = SubResource("CompressedTexture2D_8uh7m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boingg" unique_id=1946254303]
+position = Vector2(0.09999971, -4.7683707e-07)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Camera2D" type="Camera2D" parent="Boingg" unique_id=651135878]
+scale = Vector2(0.19999997, 0.19999997)
+zoom = Vector2(0.81, 0.81)
+
+[node name="Wallpaper" type="Sprite2D" parent="Boingg/Camera2D" unique_id=1016570660]
+self_modulate = Color(0.47866166, 0.47866172, 0.47866166, 1)
+z_index = -100
+scale = Vector2(12.5, 12.5)
+texture = ExtResource("1_37kl0")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1384191433]
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAD//wIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAAAAAD//wcAAQAAAAAAAAD//wYAAQAAAAAAAAD//wUAAQAAAAAAAAD//wQAAQAAAAAAAAD//wMAAQAAAAAAAAAQAP//AQAAAAAAAAAQAAAAAQAAAAAAAAAQAAEAAQAAAAAAAAAQAAQAAQAAAAAAAAAQAAUAAQAAAAAAAAAQAAYAAQAAAAAAAAAQAAcAAQAAAAAAAAD7//b/AQAAAAAAAAD8//b/AQAAAAAAAAD9//b/AQAAAAAAAAD+//b/AQAAAAAAAAD///b/AQAAAAAAAAAAAPb/AQAAAAAAAAABAPb/AQAAAAAAAAACAPb/AQAAAAAAAAADAPb/AQAAAAAAAAAEAPb/AQAAAAAAAAAFAPb/AQAAAAAAAAAGAPb/AQAAAAAAAAAHAPb/AQAAAAAAAAAIAPb/AQAAAAAAAAAJAPb/AQAAAAAAAAAKAPb/AQAAAAAAAAALAPb/AQAAAAAAAAAMAPb/AQAAAAAAAAANAPb/AQAAAAAAAAAOAPb/AQAAAAAAAAAPAPb/AQAAAAAAAAAQAPb/AQAAAAAAAAARAPb/AQAAAAAAAAASAPb/AQAAAAAAAAATAPb/AQAAAAAAAAAUAPb/AQAAAAAAAAAVAPb/AQAAAAAAAAAWAPb/AQAAAAAAAAAXAPb/AQAAAAAAAAAQAAIAAQAAAAAAAAAQAAMAAQAAAAAAAAAYAPb/AQAAAAAAAAAZAPb/AQAAAAAAAAAaAPb/AQAAAAAAAAAbAPb/AQAAAAAAAAAcAPb/AQAAAAAAAAD5//b/AQAAAAAAAAD6//b/AQAAAAAAAAD5//f/AQAAAAAAAAD5//j/AQAAAAAAAAD5//n/AQAAAAAAAAD5//r/AQAAAAAAAAD5//v/AQAAAAAAAAD5//z/AQAAAAAAAAD5//3/AQAAAAAAAAD5//7/AQAAAAAAAAD5////AQAAAAAAAAD5/wAAAQAAAAAAAAD5/wEAAQAAAAAAAAD5/wIAAQAAAAAAAAD5/wMAAQAAAAAAAAD5/wQAAQAAAAAAAAD5/wUAAQAAAAAAAAD5/wYAAQAAAAAAAAD5/wcAAQAAAAAAAAAdAPb/AQAAAAAAAAAeAPb/AQAAAAAAAAAfAPb/AQAAAAAAAAAgAPb/AQAAAAAAAAAhAPb/AQAAAAAAAAAiAPb/AQAAAAAAAAAiAPf/AQAAAAAAAAAiAPj/AQAAAAAAAAAiAPn/AQAAAAAAAAAiAPr/AQAAAAAAAAAiAPv/AQAAAAAAAAAiAPz/AQAAAAAAAAAiAP3/AQAAAAAAAAAiAP7/AQAAAAAAAAAiAP//AQAAAAAAAAAiAAAAAQAAAAAAAAAiAAEAAQAAAAAAAAAiAAIAAQAAAAAAAAAiAAMAAQAAAAAAAAAiAAQAAQAAAAAAAAAiAAUAAQAAAAAAAAAiAAYAAQAAAAAAAAAiAAcAAQAAAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQAAAAAAAAAFAAYAAQAAAAAAAAAFAAcAAQAAAAAAAAARAP//AQAAAAAAAAARAAAAAQAAAAAAAAARAAEAAQAAAAAAAAARAAIAAQAAAAAAAAARAAMAAQAAAAAAAAARAAQAAQAAAAAAAAARAAUAAQAAAAAAAAARAAYAAQAAAAAAAAARAAcAAQAAAAAAAAASAP//AQAAAAAAAAASAAAAAQAAAAAAAAASAAEAAQAAAAAAAAASAAIAAQAAAAAAAAASAAMAAQAAAAAAAAASAAQAAQAAAAAAAAASAAUAAQAAAAAAAAASAAYAAQAAAAAAAAASAAcAAQAAAAAAAAATAP//AQAAAAAAAAATAAAAAQAAAAAAAAATAAEAAQAAAAAAAAATAAIAAQAAAAAAAAATAAMAAQAAAAAAAAATAAQAAQAAAAAAAAATAAUAAQAAAAAAAAATAAYAAQAAAAAAAAATAAcAAQAAAAAAAAAUAP//AQAAAAAAAAAUAAAAAQAAAAAAAAAPAP//AQAAAAAAAAAPAAEAAQAAAAAAAAAPAAAAAQAAAAAAAAAUAAEAAQAAAAAAAAAUAAIAAQAAAAAAAAAVAAIAAQAAAAAAAAAWAAIAAQAAAAAAAAAXAAIAAQAAAAAAAAAXAAEAAQAAAAAAAAAVAAEAAQAAAAAAAAAWAAEAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_37kl0")
+
+[node name="Spring" type="StaticBody2D" parent="." unique_id=1339470563]
+position = Vector2(440, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spring" unique_id=1226101912]
+scale = Vector2(5, 5)
+texture = ExtResource("3_ppyta")
+script = ExtResource("4_ykrsh")
+
+[node name="Area2D" type="Area2D" parent="Spring" unique_id=1868406323]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spring/Area2D" unique_id=2120046771]
+shape = SubResource("RectangleShape2D_ppyta")
+
+[node name="Master Key" type="StaticBody2D" parent="." unique_id=1954536065]
+position = Vector2(1480, -120)
+
+[node name="Sprite2D" type="Sprite2D" parent="Master Key" unique_id=640707816]
+scale = Vector2(5, 5)
+texture = ExtResource("6_g14j6")
+script = ExtResource("4_ykrsh")
+
+[node name="Area2D" type="Area2D" parent="Master Key" unique_id=815027190]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Master Key/Area2D" unique_id=1026819782]
+shape = SubResource("RectangleShape2D_vbegm")
+
+[connection signal="body_entered" from="Spring/Area2D" to="Boingg" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Spring/Area2D" to="Boingg" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Master Key/Area2D" to="Boingg" method="_on_area_2d_body_entered_2"]
