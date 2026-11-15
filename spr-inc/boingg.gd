@@ -5,11 +5,20 @@ const JUMP_VELOCITY = -500.0
 const SLOWDOWN = 20
 var INSPRING = 0
 
-var startPos: Vector2
+var start_pos: Vector2
+
+@export var win_label: Label
 
 func _ready() -> void:
-	startPos = position
+	start_pos = position
+	win_label.visible = false
 	velocity.x = SPEED
+
+func update_timer(time_in_seconds: float) -> String:
+	var total_seconds := int(floor(time_in_seconds))
+	var minutes := total_seconds / 60
+	var seconds := total_seconds % 60
+	return "%02d:%02d" % [minutes, seconds]
 
 func _physics_process(delta: float) -> void:
 
@@ -39,6 +48,10 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func _process(delta: float) -> void:
+	if Input.is_key_pressed(KEY_R):
+		win_label.visible = false
+		position = start_pos
 
 #func _on_area_2d_body_entered(_body: Node2D) -> void:
 	#INSPRING = 13
@@ -53,8 +66,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_death_zone_body_entered(_body: Node2D) -> void:
-	position = startPos
+	position = start_pos
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	win_label.visible = true
 	print ("You Have Completed The Challenge...")

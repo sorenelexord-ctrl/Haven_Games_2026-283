@@ -13,6 +13,10 @@ load_path = "res://.godot/imported/arrowguy.png-b23e20d1ef6de1aa426e922e29d21682
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uqi0"]
 size = Vector2(15.800001, 16)
 
+[sub_resource type="LabelSettings" id="LabelSettings_g14j6"]
+font_size = 58
+shadow_size = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g14j6"]
 texture = ExtResource("3_ykrsh")
 0:0/0 = 0
@@ -39,10 +43,11 @@ size = Vector2(145.8, 59.40001)
 
 [node name="Node2D" type="Node2D" unique_id=1449491558]
 
-[node name="Boingg" type="CharacterBody2D" parent="." unique_id=208267075 groups=["Player"]]
+[node name="Boingg" type="CharacterBody2D" parent="." unique_id=208267075 node_paths=PackedStringArray("win_label") groups=["Player"]]
 position = Vector2(0.99999994, 0)
 scale = Vector2(4.8, 4.8)
 script = ExtResource("1_6uqi0")
+win_label = NodePath("Camera2D/WinLabel")
 
 [node name="Sprite2D" type="Sprite2D" parent="Boingg" unique_id=1192628610]
 texture = SubResource("CompressedTexture2D_8uh7m")
@@ -61,6 +66,29 @@ self_modulate = Color(0.47866166, 0.47866172, 0.47866166, 1)
 z_index = -100
 scale = Vector2(12.5, 12.5)
 texture = ExtResource("1_37kl0")
+
+[node name="WinLabel" type="Label" parent="Boingg/Camera2D" unique_id=1915576602]
+texture_filter = 2
+offset_left = -193.75003
+offset_top = -208.33334
+offset_right = 187.79166
+offset_bottom = -61.458344
+text = "YOU WIN"
+label_settings = SubResource("LabelSettings_g14j6")
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="Boingg/Camera2D" unique_id=1370941405]
+texture_filter = 2
+offset_left = -187.50002
+offset_top = -394.7917
+offset_right = 194.04167
+offset_bottom = -247.91669
+text = "00:00"
+label_settings = SubResource("LabelSettings_g14j6")
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="Boingg" unique_id=445999719]
+process_callback = 0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1384191433]
 scale = Vector2(5, 5)
