@@ -21,6 +21,10 @@ window/size/viewport_width=648
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
 
+[global_group]
+
+Player=""
+
 [gui]
 
 common/auto_focus_strategy=1
@@ -39,4 +43,5 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/multi_bounce_occlusion/enabled=true
